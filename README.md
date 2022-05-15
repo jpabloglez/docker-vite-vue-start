@@ -42,16 +42,3 @@ And you are ready to go:
 ```
 npm run dev
 ```
-
-Check OS
-```
-cat /etc/os-release
-```
-wich results in => PRETTY_NAME="Debian GNU/Linux 10 (buster)"
-
-## Updating code
-In order to update the code of your project inside the docker container configure the volume to map the path of the source repository and grant writting permissions for your user:
-
-```
-(sudo) touch frontend && sudo chown -R USER:USER frontend/* && ls -la
-```
