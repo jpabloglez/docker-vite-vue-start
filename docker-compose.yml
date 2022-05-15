@@ -1,12 +1,13 @@
 version: "3.4"
 services:
   frontend:
-    container_name: frontend
-    image: node:lts # https://nodejs.org/dist/latest-v16.x/docs/api/
-    working_dir: /var/www/html/app/
-    entrypoint: /bin/bash
-    expose:
-      - 8000:8000
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile.frontend
+    container_name: frontend 
+    command: npm run dev
+    ports:
+      - 127.0.0.1:8000:8000
     volumes:
-      - ./frontend/:/var/www/html/app
+      - ./frontend/:/var/www/html/app/frontend
     tty: true
