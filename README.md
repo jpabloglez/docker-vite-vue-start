@@ -11,6 +11,11 @@ docker-compose up -d
 Create a new Vite project inside container
 ``` 
 docker exec -it frontend /bin/bash
+
+* Change app folder permissions
+chown 1000:1000 app
+# chown www-data:www-data app
+
 npm init @vitejs/app
 ```
 When prompted select Vue as your favourite framework. Then, edit the vite.config.js by adding the server object:
