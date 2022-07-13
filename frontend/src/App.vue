@@ -28,7 +28,7 @@
                             <a class="nav-link" href="#"><router-link to="/Signup">Sign Up</router-link></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><router-link to="/Analyses">Analyses</router-link></a>
+                            <a class="nav-link" href="Analyses"><router-link to="/Analyses">Analyses</router-link></a>
                         </li>
                         </ul>
                         <span class="navbar-text">

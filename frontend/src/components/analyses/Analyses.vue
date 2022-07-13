@@ -45,6 +45,13 @@
           </div>
         </section>
 
+        
+        <div id="container-round">
+          <vue-pdf-embed 
+          :page="page"
+          :source="pdf_url" />
+        </div>
+
 
       <!-- CARGA ANÁLISIS A) -->
       <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
@@ -91,6 +98,38 @@
 </html>
 
 </template>
+
+<script lang="ts">
+
+
+    import VuePdfEmbed from 'vue-pdf-embed';
+
+    // OR THE FOLLOWING IMPORT FOR VUE 2
+    // import VuePdfEmbed from 'vue-pdf-embed/dist/vue2-pdf-embed'
+
+    export default {
+      components: {
+        VuePdfEmbed,
+      },
+      data() {
+        return {
+          page: null,
+          pdf_url: '../../public/envoy_vol_report.pdf',
+          /*source2: 'data:application/pdf;base64,<BASE64_ENCODED_PDF>',*/
+          showAllPages: false,
+          pageCount: 1,
+          
+        }
+      },
+      watch: {
+        showAllPages() {
+          this.page = this.showAllPages ? null : 1;
+        },
+    },
+  }
+
+</script>
+
 
 
 <style lang="scss">
@@ -161,6 +200,13 @@ p, li {
   background-color: #00cdac;
 }
 */
+
+#container-round{
+  border: 2px solid #00cdac;
+  border-radius: 20px;
+  background-color: white;
+  padding: 8px 8px;
+}
 
 
 </style>
