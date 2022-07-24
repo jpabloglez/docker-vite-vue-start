@@ -30,6 +30,12 @@
                         <li class="nav-item">
                             <a class="nav-link" href="Analyses"><router-link to="/Analyses">Analyses</router-link></a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Upload"><router-link to="/Upload">Upload</router-link></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Stats"><router-link to="/Stats">Stats</router-link></a>
+                        </li>
                         </ul>
                         <span class="navbar-text">
                         AI assited imaging analysis

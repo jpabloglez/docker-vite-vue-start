@@ -92,6 +92,16 @@
         </div>
       </div>
 
+      <!-- Notification -->
+
+      <button type="button" class="btn btn-primary" @click="showAlert()">Show alert</button>
+      <div v-show="alertIsOpen" class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close" @click="closeAlert()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
 
       </main>
   </body>
@@ -99,7 +109,7 @@
 
 </template>
 
-<script lang="ts">
+<script lang="js">
 
 
     import VuePdfEmbed from 'vue-pdf-embed';
@@ -118,9 +128,24 @@
           /*source2: 'data:application/pdf;base64,<BASE64_ENCODED_PDF>',*/
           showAllPages: false,
           pageCount: 1,
-          
+          alertIsOpen: false,
+          timeout: 2000,
         }
+        
       },
+      methods: {
+        showAlert() {
+          this.alertIsOpen = true;
+        },
+        closeAlert() {
+          this.alertIsOpen = false;
+        },
+                
+      },
+      mounted() {
+        setTimeout(() => this.alertIsOpen = false, 3000);
+      },
+
       watch: {
         showAllPages() {
           this.page = this.showAllPages ? null : 1;
