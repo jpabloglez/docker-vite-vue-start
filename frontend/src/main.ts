@@ -1,5 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
+import { BIconClipboard } from 'bootstrap-icons-vue';
+// import { BootstrapIconsPlugin } from 'bootstrap-icons-vue'; // Import all icons
 
 import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router';
@@ -8,12 +10,12 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 /* import specific icons */
-import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
+import { faUserSecret, faUser, faHospital } from '@fortawesome/free-solid-svg-icons'
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
 import { faChartLine } from "@fortawesome/free-solid-svg-icons";
 
 /* add icons to the library */
-library.add(faUserSecret, faPhone, faChartLine);
+library.add(faUserSecret, faPhone, faChartLine, faUser);
 
 
 

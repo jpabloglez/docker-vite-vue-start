@@ -8,45 +8,17 @@
         <div>
             <ul class="nav nav-pills nav-fill">
                 <li class="nav-item">
-                    <div>
-                    <a class="nav-link active" aria-current="page" href="#"> Statistics 
-                    <span><biChartUp></biChartUp></span>
-                    <font-awesome-icon icon="fa-solid fa-chart-line text-success text-right" size="1x" color="white" style="margin-left: 1em"/>
-                    </a>
-                    </div>  
+                    <a class="nav-link active" aria-current="page" href="#"> Statistics </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" v-on:click="activeTab='Users'" v-bind:class="[ activeTab === 'Stats' ? 'active' : '' ]"> Users
+                    <a class="nav-link" href="#" v-on:click="activeTab='Users'" v-bind:class="[ activeTab === 'Stats' ? 'active' : '' ]"> Users</a>
                     <!--<a @click="showStatsTab('Users')" class="nav-link" v-bind:class="{ active: isActive('Users') }"  data-toggle="tab"  role="tab" aria-controls="contact" aria-selected="false"> Users </a>-->
-                    <font-awesome-icon icon="fa-solid fa-user text-success text-right" size="1x" color="black" style="margin-left: 1em"/>
-                    </a>
 
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"> Analyses 
-                    <biClipData></biClipData>
-                    </a>
+                    <a class="nav-link" href="#"> Analyses </a>
                 </li>
             </ul>
-        </div>
-
-        <div>
-            <ul class="nav nav-pills nav-fill" id="pills-tab" role="tablist">
-            <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true"> Statistics <biChartUp style="margin-left: 1em;"></biChartUp> </button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false"> Users </button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false"> Analyses </button>
-            </li>
-            </ul>
-                <div class="tab-content" id="pills-tabContent">
-                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"> Tab 1 Content </div>
-                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"> Tab 2 Content </div>
-                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab"> Tab 3 Content </div>
-            </div>
         </div>
 
         <!--
@@ -59,23 +31,7 @@
         <div id="section-content">
             <div class="row">
                 <hr id="hr-separator">
-                <div> <h2 style="color: black"> Numbers </h2></div>
-
-                <div class="col-xl-3 col-md-6 mb-4">
-                    <div class="card border-left-subs shadow h-100 py-2" style="border-left-color: lightseagreen">
-                        <div class="card-body">
-                            <div class="row no-gutters align-items-center">
-                                <div class="col mr-2">
-                                    <a href="/system/subscriptions"><div class="text-xs font-weight-bold text-uppercase mb-1" style="color: lightseagreen"> <h3 style="color: lightseagreen">Subscriptions</h3></div></a>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800"> SUSCRIPTIONS </div>
-                                </div>
-                                <div class="col-auto">
-                                    <p class="h1"><biReceipt style="color: lightseagreen;"></biReceipt></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div align="left"> <h2 style="color: black"> Numbers </h2></div>
 
                 <div class="col-xl-3 col-md-6 mb-4">
                     <div class="card border-left-primary shadow h-100 py-2">
@@ -110,11 +66,27 @@
                 </div>
 
                 <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-subs shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <a href="/system/subscriptions"><div class="text-xs font-weight-bold text-uppercase mb-1" style="color: #cc9218; !important">Active subscriptions</div></a>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800"> SUSCRIPTIONS </div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fa fa-list fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-md-6 mb-4">
                     <div class="card border-left-info shadow h-100 py-2">
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
-                                    <a href="/system/analyses/pet"><div class="text-xs font-weight-bold text-uppercase mb-1" style="color: #343c56;"> Analyses </div></a>
+                                    <a href="/system/analyses/pet"><div class="text-xs font-weight-bold text-uppercase mb-1" style="color: #343c56;"># of analysis</div></a>
                                     <div class="h5 mb-0 font-weight-bold text-gray-800"> ANALYSES </div>
                                 </div>
                                 <div class="col-auto">
@@ -143,6 +115,22 @@
                     </div>
                 </div>
 
+                <div class="col-xl-3 col-sm-6 col-12 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between px-md-1">
+                                <div class="align-self-center">
+                                    
+                                    <i class="fa-solid fa-chart-line fa-3x"></i>
+                                </div>
+                                <div class="text-end">
+                                    <h3>278</h3>
+                                    <p class="mb-0">New Posts</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         
@@ -171,52 +159,29 @@
 <script>
     import VueApexCharts from "vue3-apexcharts";
     import Tabs from "./Tabs.vue";
-    /*Bootstrap icons */
-    import { BIconClipboardData, BIconGraphUp, BIconReceipt } from 'bootstrap-icons-vue';
     
     export default {
         name: 'Stats',
         components: {
             apexchart: VueApexCharts,
             tabs: Tabs,
-            biClipData: BIconClipboardData,
-            biChartUp: BIconGraphUp,
-            biReceipt: BIconReceipt,
         },
         data() {
             return {
                 activeTab: 'Users',
-                series: [
-                    {
-                        name: 'IQ-neuro-PET',
-                        color: 'lightblue',
-                        data: [30, 40, 45, 50],
-                    },
-                    {
-                        name: 'IQ-neuro-MRI',
-                        color: 'lightgreen',
-                        data: [35, 37, 42, 45],
-                    },
-                    {
-                        name: 'IQ-neuro-SISCOM',
-                        color: 'lightcoral',
-                        data: [2, 4, 6, 8],
-                    },
-                    {
-                        name: 'IQ-neuro-SPECT',
-                        color: 'plum',
-                        data: [12, 34, 26, 38],
-                    }
-                ],
+                series: [{
+                    name: 'series-cocacola',
+                    data: [30, 40, 45, 50],
+                }],
+                pieSeries: [10, 30, 5, 55],
                 lineOptions: {
                     chart: {
-                        id: 'analyses_per_service',
+                        id: 'vuechart-example'
                     },
                     xaxis: {
-                        categories: [1001, 1002, 1003, 1004],
+                        categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998]
                     }
                 },
-                pieSeries: [10, 30, 5, 55],
                 pieOptions: {
                     labels: ["Pet", "Vol", "Siscom", "Spect"],
                     chart: {
@@ -264,6 +229,8 @@
     }
 
     .nav-tabs{
+        border: 5px solid red;
+        border-color: red;
         border-bottom: 2px solid lightgray;
         border-right: 2px solid lightgray;
     }
@@ -286,14 +253,4 @@
         border: 2px solid lightgray;
     }
 
-    /* Remove hyperlink line */
-    a { 
-        text-decoration: none; 
-        }
-
-    .icon {
-        margin-left: 1em;
-        margin-right: 1em;
-        align-self: right;
-    }
 </style>

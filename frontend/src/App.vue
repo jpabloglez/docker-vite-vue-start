@@ -44,10 +44,25 @@
                 </div>
             </nav>
 
-            <div align="center">
+            <div id="container">
                 <router-view></router-view>
             </div>
 
         </body>
     </html>
 </template>
+
+<style>
+
+    h1, h2, h3, h4, h5, h6, p {
+        text-align: left;
+        color: black;
+    }
+
+    #container {
+        margin: 0 auto;
+        align-content: center;
+        width: 100%;
+    }
+
+</style>
