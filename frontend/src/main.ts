@@ -2,6 +2,11 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
 import { BIconClipboard } from 'bootstrap-icons-vue';
 // import { BootstrapIconsPlugin } from 'bootstrap-icons-vue'; // Import all icons
+//import VueI18n from 'vue-i18n';
+//import Locale from './locales/locales';
+import { i18n } from "./i18n";
+
+
 
 import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router';
@@ -27,6 +32,7 @@ import Signup from './components/login/Signup.vue';
 import Analyses from './components/analyses/Analyses.vue';
 import Upload from './components/Upload.vue';
 import Stats from './components/admin/Stats.vue';
+import Lang from './components/Lang.vue';
 
 
 // Create the router app
@@ -36,7 +42,7 @@ const router = createRouter({
         { 
             path: '/', 
             name: 'About',
-            component: About 
+            component: Lang 
         },
         { 
             path: '/Login', 
@@ -66,9 +72,28 @@ const router = createRouter({
     ]
 });
 
+/*
+let i18n = new VueI18n({
+    locale: 'es', // set locale
+    messages: Locale, // set locale messages
+    silentTranslationWarn: true
+
+})
+*/
+
+/*
+const i18n = new VueI18n({
+    locale: 'es', // set locale
+    messages: Locale, // set locale messages
+})
+*/
+
 const app = createApp(App).component('font-awesome-icon', FontAwesomeIcon);
 
+
+
 app.use(router);
+app.use(i18n);
 
 
 app.mount('#app')
