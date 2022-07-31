@@ -6,6 +6,8 @@
 <template>
     <div id="main-content">
         <div>
+            <button type="button" class="btn btn-primary">Primary with other color</button>
+
             <ul class="nav nav-pills nav-fill">
                 <li class="nav-item">
                     <div>
@@ -36,7 +38,7 @@
                 <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true"> Statistics <biChartUp style="margin-left: 1em;"></biChartUp> </button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false"> Users </button>
+                <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false" style="background-color: #AC92EC;"> Users </button>
             </li>
             <li class="nav-item" role="presentation">
                 <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false"> Analyses </button>
@@ -162,6 +164,7 @@
                 </div>
             </div>
         </section>
+
 
     </div>
 
@@ -296,4 +299,15 @@
         margin-right: 1em;
         align-self: right;
     }
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #8064A2 !important;
+}
+
+.nav-tabs .nav-item .nav-link.active .nav-link {
+  color: #8064A2 !important;
+  background-color: #8064A2;
+}
+
+
+
 </style>
