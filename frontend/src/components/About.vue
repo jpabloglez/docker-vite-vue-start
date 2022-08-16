@@ -3,6 +3,12 @@
       
     <main class="main">
 
+      <div class="jumbotron">
+        <h1 class="display-2">Learn How To Make Responsive Bootstrap Website</h1>
+        <p class="lead">Register Now To Get Access To The Tutorial</p>
+        <a class="btn btn-lg btn-primary" href="#" role="button">Get 10% Discount NOW</a>
+      </div>
+    
       <section class="section">
         <div class="dropdown dropdown-dark">
           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">

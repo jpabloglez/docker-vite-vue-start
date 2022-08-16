@@ -156,7 +156,7 @@
 
 
 
-<style lang="scss">
+<style lang="scss" scoped>
 
 //@import "../../node_modules/bootstrap/scss/_accordion.scss"; 
 
@@ -191,12 +191,6 @@ html {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-}
-h1, h2, h3, h4, h5, h6 {
-    color: lightcyan;
-}
-p, li {
-    color: lightcyan;
 }
 
 .main{

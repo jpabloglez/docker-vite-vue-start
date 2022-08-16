@@ -26,7 +26,7 @@
   </main>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
 html { 
     background-image: linear-gradient(-20deg, #00cdac 0%, #8ddad5 100%);
@@ -36,12 +36,7 @@ html {
     -o-background-size: cover;
     background-size: cover;
 }
-h1, h2, h3, h4, h5, h6 {
-    color: lightcyan;
-}
-p, li {
-    color: lightcyan;
-}
+
 
 #card_round{
   border: 2px solid white;

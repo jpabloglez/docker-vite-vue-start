@@ -1,2 +1,5 @@
 source/
 *.zip
+node_modules
+.temp
+.cache

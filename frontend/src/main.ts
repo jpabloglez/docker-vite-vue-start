@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
+//import 'bootstrap/dist/js/bootstrap-re';
 import { BIconClipboard } from 'bootstrap-icons-vue';
 // import { BootstrapIconsPlugin } from 'bootstrap-icons-vue'; // Import all icons
 //import VueI18n from 'vue-i18n';
@@ -33,6 +34,8 @@ import Analyses from './components/analyses/Analyses.vue';
 import Upload from './components/Upload.vue';
 import Stats from './components/admin/Stats.vue';
 import Lang from './components/Lang.vue';
+import Uploader from './components/login/UploaderDrop.vue';
+import DicomParser from './components/login/DicomParser.vue';
 
 
 // Create the router app
@@ -42,7 +45,7 @@ const router = createRouter({
         { 
             path: '/', 
             name: 'About',
-            component: Lang 
+            component: About 
         },
         { 
             path: '/Login', 
@@ -52,7 +55,7 @@ const router = createRouter({
         { 
             path: '/Signup', 
             name: 'Signup',
-            component: Signup 
+            component: DicomParser 
         },
         { 
             path: '/Analyses', 
