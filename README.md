@@ -47,3 +47,15 @@ And you are ready to go:
 ```
 npm run dev
 ```
+
+## Dependencies
+
+* dicomParser
+```
+npm i hammerjs # Add touch gestures to your web app.
+npm i cornerstone-tools
+npm i @cornerstonejs/tools
+npm i cornerstone-wado-image-loader
+npm i cornerstone-math
+npm install @types/node --save-dev
+```

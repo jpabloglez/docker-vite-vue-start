@@ -36,6 +36,8 @@ import Stats from './components/admin/Stats.vue';
 import Lang from './components/Lang.vue';
 import Uploader from './components/login/UploaderDrop.vue';
 import DicomParser from './components/login/DicomParser.vue';
+import DicomLoader from './components/dicom/DicomLoader.vue';
+import DicomRender from './components/dicom/DicomRender.vue';
 
 
 // Create the router app
@@ -55,7 +57,7 @@ const router = createRouter({
         { 
             path: '/Signup', 
             name: 'Signup',
-            component: DicomParser 
+            component: DicomLoader 
         },
         { 
             path: '/Analyses', 
