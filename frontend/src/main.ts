@@ -35,7 +35,8 @@ import Upload from './components/Upload.vue';
 import Stats from './components/admin/Stats.vue';
 import Lang from './components/Lang.vue';
 import Uploader from './components/login/UploaderDrop.vue';
-import DicomParser from './components/login/DicomParser.vue';
+//import DicomParser from './components/login/DicomParser.vue';
+import DicomParser from './components/dicom/DicomParser.vue';
 import DicomLoader from './components/dicom/DicomLoader.vue';
 import DicomRender from './components/dicom/DicomRender.vue';
 
@@ -57,7 +58,7 @@ const router = createRouter({
         { 
             path: '/Signup', 
             name: 'Signup',
-            component: DicomLoader 
+            component: DicomParser 
         },
         { 
             path: '/Analyses', 

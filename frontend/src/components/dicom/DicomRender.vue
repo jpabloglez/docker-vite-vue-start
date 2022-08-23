@@ -4,12 +4,19 @@
 
 <script>
 // Packages
-import Hammer from "hammerjs";
+//import Hammer from "hammerjs";
+//import dicomParser from "dicom-parser";
+//import * as cornerstone from "cornerstone-core";
+//import * as cornerstoneMath from "cornerstone-math";
+//import * as cornerstoneWADOImageLoader from "cornerstone-wado-image-loader";
+//import * as cornerstoneTools from "@cornerstonejs/tools";
+
 import dicomParser from "dicom-parser";
-import * as cornerstone from "cornerstone-core";
-import * as cornerstoneMath from "cornerstone-math";
-import * as cornerstoneWADOImageLoader from "cornerstone-wado-image-loader";
-import * as cornerstoneTools from "@cornerstonejs/tools";
+import cornerstone from "cornerstone-core";
+import cornerstoneWADOImageLoader from "cornerstone-wado-image-loader";
+import cornerstoneMath from "cornerstone-math";
+import cornerstoneTools from "cornerstone-tools";
+import Hammer from "hammerjs";
 
 function initCornerstone() {
     // Externals

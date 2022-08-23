@@ -1,88 +1,83 @@
 <!-- 
-    References: https://codesandbox.io/s/1qj7j8op0l
+    References: https://codesandbox.io/s/9z04x8ykjr
 -->
 <template>
-  <main><div ref="canvas" style="width: 500px; height: 500px;"></div></main>
+  <main><div ref="canvas" style="width: 100%; height: 500px;"></div></main>
 </template>
 
 <script>
 // Packages
-import Hammer from "hammerjs";
+// import Hammer from "hammerjs";
+// import dicomParser from "dicom-parser";
+// import * as cornerstone from "cornerstone-core";
+// import * as cornerstoneMath from "cornerstone-math";
+// import * as cornerstoneWADOImageLoader from "cornerstone-wado-image-loader";
+// import * as cornerstoneTools from "@cornerstonejs/tools";
+
 import dicomParser from "dicom-parser";
-import * as cornerstone from "cornerstone-core";
-import * as cornerstoneMath from "cornerstone-math";
-import * as cornerstoneWADOImageLoader from "cornerstone-wado-image-loader";
-import * as cornerstoneTools from "@cornerstonejs/tools";
+import cornerstone from "cornerstone-core";
+import cornerstoneWADOImageLoader from "cornerstone-wado-image-loader";
+import cornerstoneMath from "cornerstone-math";
+import cornerstoneTools from "cornerstone-tools";
+import Hammer from "hammerjs";
 
-// Externals
-cornerstoneWADOImageLoader.external.cornerstone = cornerstone;
-cornerstoneWADOImageLoader.external.dicomParser = dicomParser;
-cornerstoneTools.external.cornerstoneMath = cornerstoneMath;
-cornerstoneTools.external.cornerstone = cornerstone;
-cornerstoneTools.external.Hammer = Hammer;
-
-// WadoImageLoader Registration/Config
-if (!cornerstoneWADOImageLoader.initialized) {
-  const config = {
-    webWorkerPath: "/codecs/cornerstoneWADOImageLoaderWebWorker.js",
-    taskConfiguration: {
-      decodeTask: {
-        codecsPath: "/codecs/cornerstoneWADOImageLoaderCodecs.js"
-      }
-    }
-  };
-  cornerstoneWADOImageLoader.webWorkerManager.initialize(config);
-  //cornerstoneWADOImageLoader.initialized = true;
-}
-
-export function initCornerstone() {
-  // Cornertone Tools
-  cornerstoneTools.external.cornerstone = cornerstone;
-  cornerstoneTools.external.Hammer = Hammer;
-  cornerstoneTools.external.cornerstoneMath = cornerstoneMath;
-
-  //
-  cornerstoneTools.init();
-
-  // Preferences
-  const fontFamily =
-    "Work Sans, Roboto, OpenSans, HelveticaNeue-Light, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif";
-  cornerstoneTools.textStyle.setFont(`16px ${fontFamily}`);
-  cornerstoneTools.toolStyle.setToolWidth(2);
-  cornerstoneTools.toolColors.setToolColor("rgb(255, 255, 0)");
-  cornerstoneTools.toolColors.setActiveColor("rgb(0, 255, 0)");
-
-  cornerstoneTools.store.state.touchProximity = 40;
-
-  // IMAGE LOADER
+function initCornerstone(){
+  console.log("Cargando cornerstone");
+  // Externals
   cornerstoneWADOImageLoader.external.cornerstone = cornerstone;
   cornerstoneWADOImageLoader.external.dicomParser = dicomParser;
-  cornerstoneWADOImageLoader.webWorkerManager.initialize({
-    maxWebWorkers: navigator.hardwareConcurrency || 1,
-    startWebWorkersOnDemand: true,
-    taskConfiguration: {
-      decodeTask: {
-        initializeCodecsOnStartup: false,
-        usePDFJS: false,
-        strict: false,
-      },
-    },
-});
+  cornerstoneTools.external.cornerstoneMath = cornerstoneMath;
+  cornerstoneTools.external.cornerstone = cornerstone;
+  cornerstoneTools.external.Hammer = Hammer;
+
+  // CodeSandbox live updates components in an odd way.
+  // We do this to protect ourselves from duplicate initializations
+  if (!cornerstoneWADOImageLoader.initialized) {
+    // WadoImageLoader Registration/Config
+    const config = {
+      webWorkerPath: "/codecs/cornerstoneWADOImageLoaderWebWorker.js",
+      taskConfiguration: {
+        decodeTask: {
+          codecsPath: "/codecs/cornerstoneWADOImageLoaderCodecs.js"
+        }
+      }
+    };
+    cornerstoneWADOImageLoader.webWorkerManager.initialize(config);
+    cornerstoneWADOImageLoader.initialized = true;
+  }
+}
 
 export default {
-  name: "DicomLoader",
+  name: "SimpleExampleViewer",
   created() {
+    initCornerstone();
     cornerstoneTools.init({
       globalToolSyncEnabled: true
     });
 
+    // Grab Tool Classes
     const WwwcTool = cornerstoneTools.WwwcTool;
-    const OverlayTool = cornerstoneTools.OverlayTool;
-    cornerstoneTools.addTool(WwwcTool);
-    cornerstoneTools.addTool(OverlayTool);
+    const PanTool = cornerstoneTools.PanTool;
+    const PanMultiTouchTool = cornerstoneTools.PanMultiTouchTool;
+    const ZoomTool = cornerstoneTools.ZoomTool;
+    const ZoomTouchPinchTool = cornerstoneTools.ZoomTouchPinchTool;
+    const ZoomMouseWheelTool = cornerstoneTools.ZoomMouseWheelTool;
 
-    cornerstoneTools.setToolActive("Wwwc", { mouseButtonMask: 1 });
-    cornerstoneTools.setToolEnabled("Overlay", {});
+    // Add them
+    cornerstoneTools.addTool(PanTool);
+    cornerstoneTools.addTool(ZoomTool);
+    cornerstoneTools.addTool(WwwcTool);
+    cornerstoneTools.addTool(PanMultiTouchTool);
+    cornerstoneTools.addTool(ZoomTouchPinchTool);
+    cornerstoneTools.addTool(ZoomMouseWheelTool);
+
+    // Set tool modes
+    cornerstoneTools.setToolActive("Pan", { mouseButtonMask: 4 }); // Middle
+    cornerstoneTools.setToolActive("Zoom", { mouseButtonMask: 2 }); // Right
+    cornerstoneTools.setToolActive("Wwwc", { mouseButtonMask: 1 }); // Left & Touch
+    cornerstoneTools.setToolActive("PanMultiTouch", {});
+    cornerstoneTools.setToolActive("ZoomMouseWheel", {});
+    cornerstoneTools.setToolActive("ZoomTouchPinch", {});
   },
   mounted() {
     // Enable Canvas
@@ -92,15 +87,11 @@ export default {
     });
 
     // Load Image
-    const codeSandboxProjectUrl = "https://1qj7j8op0l.codesandbox.io";
-    const imageId = `wadouri:${codeSandboxProjectUrl}/overlay_dicom.dcm`;
+    //const codeSandboxProjectUrl = "https://9z04x8ykjr.codesandbox.io";
+    //const imageId = `wadouri:${codeSandboxProjectUrl}/000000.dcm`;
+    const imageId = `wadouri:./public/image.dcm`;
     cornerstone.loadImage(imageId).then(image => {
       cornerstone.displayImage(this.canvas, image);
-      const overlayMeta = cornerstone.metaData.get(
-        "overlayPlaneModule",
-        imageId
-      );
-      console.log(overlayMeta);
     });
   }
 };
